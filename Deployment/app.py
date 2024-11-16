@@ -47,8 +47,8 @@ try:
             img = preprocess(image)
 
             model = model_arc()
-            # model.load_weights("../weights/model.h5")
-            model.load_weights("C:/Users/Acer/PycharmProjects/pythonProject22/model.h5")
+            model.load_weights("../weights/model.h5")
+            # model.load_weights("C:/Users/Acer/PycharmProjects/pythonProject22/model.h5")
 
             prediction = model.predict(img[np.newaxis, ...])
             st.info(f'Hey! The uploaded image has been classified as "{labels[np.argmax(prediction[0], axis=-1)]} waste"')
