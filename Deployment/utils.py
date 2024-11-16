@@ -8,8 +8,7 @@ from PIL import Image
 
 
 def gen_labels():
-    # train = '../Data/Train'
-    train ='C:/Users/Acer/Downloads/Trash-Classifier-in-Python-using-Tensorflow-main/Trash-Classifier-in-Python-using-Tensorflow-main/Data/Train'
+    train = 'Data/Train'
     train_generator = ImageDataGenerator(rescale = 1/255)
 
     train_generator = train_generator.flow_from_directory(train,
