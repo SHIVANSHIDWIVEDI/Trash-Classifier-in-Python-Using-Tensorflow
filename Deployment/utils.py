@@ -21,7 +21,7 @@ def gen_labels():
 
 def preprocess(image):
     # image = np.array(image.resize((300, 300), Image.ANTIALIAS))
-    image = np.array(image.resize((300, 300), Image.Image.Resampling.LANCZOS))
+    image = np.array(image.resize((300, 300), Image.Resampling.LANCZOS))
     image = np.array(image, dtype='uint8')
     image = np.array(image)/255.0
 
