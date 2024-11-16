@@ -1,5 +1,5 @@
-tensorflow
 streamlit
+tensorflow
 keras
 numpy
 PIL
