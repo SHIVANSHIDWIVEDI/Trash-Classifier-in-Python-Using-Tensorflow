@@ -49,6 +49,7 @@ In this project, we have tried to classify garbage under the same categories as 
 <hr>
 
 ## Steps for using the Web Application
+
 - Cloning the Repository: 
 
         git clone https://github.com/srijarkoroy/Garbage_Segregation.git
@@ -67,8 +68,16 @@ In this project, we have tried to classify garbage under the same categories as 
 
         Ctrl+C
 
+
+
 ## Demonstration
 <br>
+
+Here's a Demo on how the Web Application works 
+<br>
+<br>
+
+![](Deployment/GarbageDemo.gif)
 
 Here's a Demo on how the Web Application works 
 <br>
