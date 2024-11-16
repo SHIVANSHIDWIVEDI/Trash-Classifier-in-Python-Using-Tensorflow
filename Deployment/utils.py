@@ -1,5 +1,5 @@
 from tensorflow.keras.models import Sequential
-from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense, Dropout, SpatialDropout2D, Input
+from tensorflow.keras.layers import Conv2D, Flatten, MaxPooling2D, Dense, Dropout, SpatialDropout2D, Input
 from tensorflow.keras.losses import sparse_categorical_crossentropy, binary_crossentropy
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
