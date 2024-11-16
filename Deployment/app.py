@@ -3,58 +3,49 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import urllib.request
-from utils import gen_labels, preprocess, model_arc
+from utils import gen_labels, preprocess, model_arc  # Explicit imports
 
+# Generate labels
 labels = gen_labels()
 
-html_temp = '''
-    <div style="padding-bottom: 20px; padding-top: 20px; padding-left: 5px; padding-right: 5px">
-    <center><h1>Garbage Segregation</h1></center>
+# Streamlit HTML elements
+st.markdown('''
+    <div style="padding: 20px;">
+        <center><h1>Garbage Segregation</h1></center>
     </div>
-    '''
-st.markdown(html_temp, unsafe_allow_html=True)
-
-html_temp = '''
     <div>
-    <h2></h2>
-    <center><h3>Please upload Waste Image to find its Category</h3></center>
+        <center><h3>Please upload Waste Image to find its Category</h3></center>
     </div>
-    '''
-st.markdown(html_temp, unsafe_allow_html=True)
+''', unsafe_allow_html=True)
 
-opt = st.selectbox("How do you want to upload the image for classification?\n",
+# Upload option
+opt = st.selectbox("How do you want to upload the image for classification?",
                    ('Please Select', 'Upload image via link', 'Upload image from device'))
 
+image = None
 if opt == 'Upload image from device':
     file = st.file_uploader('Select', type=['jpg', 'png', 'jpeg'])
-    if file is not None:
+    if file:
         image = Image.open(file)
 
 elif opt == 'Upload image via link':
-    try:
-        img = st.text_input('Enter the Image Address')
-        image = Image.open(urllib.request.urlopen(img))
-    except:
-        if st.button('Submit'):
-            show = st.error("Please Enter a valid Image Address!")
-            time.sleep(4)
-            show.empty()
+    img_url = st.text_input('Enter the Image Address')
+    if st.button('Submit'):
+        try:
+            image = Image.open(urllib.request.urlopen(img_url))
+        except Exception:
+            st.error("Invalid image address!")
 
-try:
-    if image is not None:
-        st.image(image, width=300, caption='Uploaded Image')
-        if st.button('Predict'):
-            img = preprocess(image)
-
-            model = model_arc()
-            model.load_weights("../weights/model.h5")
-            # model.load_weights("C:/Users/Acer/PycharmProjects/pythonProject22/model.h5")
-
-            prediction = model.predict(img[np.newaxis, ...])
-            st.info(f'Hey! The uploaded image has been classified as "{labels[np.argmax(prediction[0], axis=-1)]} waste"')
-except Exception as e:
-    st.info(e)
-    pass
+# Predict category
+if image:
+    st.image(image, width=300, caption='Uploaded Image')
+    if st.button('Predict'):
+        img = preprocess(image)
+        model = model_arc()
+        model.load_weights("../weights/model.h5")
+        prediction = model.predict(img[np.newaxis, ...])
+        category = labels[np.argmax(prediction[0], axis=-1)]
+        st.info(f'The uploaded image is classified as "{category} waste".')
 
 
 
