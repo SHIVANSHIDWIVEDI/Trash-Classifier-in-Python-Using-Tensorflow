@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import urllib.request
-from utils import gen_labels, preprocess, model_arc  # Explicit imports
+from utils import * # Explicit imports
 
 # Generate labels
 labels = gen_labels()
