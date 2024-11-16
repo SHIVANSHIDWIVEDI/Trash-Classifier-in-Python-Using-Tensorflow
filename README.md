@@ -5,10 +5,6 @@ Waste Classification means to group Waste into different Categories. Each waste 
 ## Objective:
 
 In this project, we have tried to classify garbage under the same categories as provided by the Waste Regulations 2011:-
-<br>
-
-<img src="visualize/cardboard15.jpg" height = "90" > <img src="visualize/glass6.jpg" height = "90" > <img src="visualize/metal21.jpg" height = "90" > <img src="visualize/paper10.jpg" height = "90" > <img src="visualize/plastic25.jpg" height = "90" > <img src="visualize/trash91.jpg" height = "90" >
-<br>
 
 - Cardboard 
 - Glass  
@@ -47,40 +43,5 @@ In this project, we have tried to classify garbage under the same categories as 
 - Deploying the Model as a Web Application using Streamlit
 
 <hr>
-
-## Steps for using the Web Application
-
-- Cloning the Repository: 
-
-        git clone https://github.com/srijarkoroy/Garbage_Segregation.git
-- Entering The directory: 
-
-        cd Garbage_Segregation
-        
-- Setting up the Python Environment with the dependencies:
-
-        pip install -r Requirements.txt
-        
-- Running the Web App:
-
-        streamlit run app.py
-- Stopping the web app from the terminal:
-
-        Ctrl+C
-
-
-
-## Demonstration
-<br>
-
-Here's a Demo on how the Web Application works 
-<br>
-<br>
-
-![](Deployment/GarbageDemo.gif)
-
-Here's a Demo on how the Web Application works 
-<br>
-<br>
 
 ![](Deployment/GarbageDemo.gif)
